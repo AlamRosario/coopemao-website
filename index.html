@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOPEMAO | Manos a la Obra</title>
+    
+    <!-- Fuentes de Google (Montserrat y Open Sans para toque profesional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de FontAwesome (Versión gratuita CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Estilos CSS personalizados -->
+    <link rel="stylesheet" href="CSS/style.css">  
+
+</head>
+<body>
+
+    <!-- Top Bar: Información de contacto inmediata -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone-alt"></i> (809) 792-2383</span>
+                <span><i class="fas fa-envelope"></i> coopemao1@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <span><i class="fab fa-facebook-f"></i></span>
+                <span><i class="fab fa-instagram"></i></span>
+                <span><i class="fab fa-whatsapp"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación Principal -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="#inicio">
+                    <img src="assets/images/logo.svg" alt="COOPEMAO LOGO">
+                </a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="#inicio">Inicio</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#noticias">Noticias</a>
+                <a href="#hacerse-socio" class="btn-primary">Hacerse Socio</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero (Portada) -->
+    <section class="hero" id="inicio">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="assets/videos/hero.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+            <h1>Creando Oportunidades para nuestros Socios</h1>
+            <p>Cooperativa de ahorro y crédito pensada para ti </p>
+
+            <div class="hero-buttons">
+                <a href="#hacerse-socio" class="btn-hero">Hacerse Socio</a>
+                <a href="#servicios" class="btn-outline">Nuestros Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barra de Características (Features) -->
+    <section class="container">
+        <div class="features-bar">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>Tasas Competitivas</h3>
+                    <p>Los mejores intereses del mercado para tus ahorros.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Seguridad Garantizada</h3>
+                    <p>Tu dinero protegido con la mayor solidez financiera.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Beneficios Sociales</h3>
+                    <p>Programas de salud y educación para nuestros socios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nuestros Productos Financieros</h2>
+                <p>Diseñados para cada etapa de tu vida.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Tarjeta 1 -->
+                <div class="service-card">
+                    <i class="fas fa-piggy-bank"></i>
+                    <h3>Cuentas de Ahorro</h3>
+                    <p>Comienza a construir tu patrimonio con nuestras cuentas de ahorro infantil, corriente y a plazo fijo.</p>
+                    <a href="#" class="link-arrow">Ver planes <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="service-card">
+                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <h3>Préstamos personales</h3>
+                    <p>Créditos accesibles para cubrir tus necesidades personales.</p>
+                    <a href="#" class="link-arrow">Solicitar ahora <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Inversiones</h3>
+                    <p>Maximiza tu capital con nuestros certificados financieros de alta rentabilidad.</p>
+                    <a href="#" class="link-arrow">Calcular retorno <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Listo para ser parte de la familia?</h2>
+            <p>Únete a más de 300 socios que confían en nosotros.</p>
+            <a href="#" class="btn-primary" style="background: white; color: var(--primary-color);">Solicitar Afiliación</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Sobre Nosotros</h4>
+                    <p>Somos una cooperativa comprometida con el desarrollo sostenible de nuestra comunidad, ofreciendo servicios financieros éticos y transparentes.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Sabana Larga, Dr. Octavio Mejía Ricart, Santo Domingo Este</li>
+                        <li><i class="fas fa-phone"></i> (809) 798-2383</li>
+                        <li><i class="fas fa-envelope"></i> coopemao1@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cooperativa de Servicios Múltiples. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script simple para menú móvil -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
+
+        
