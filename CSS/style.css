@@ -64,13 +64,38 @@ ul {
     align-items: center;
 }
 
-.contact-info span {
-    margin-right: 20px;
+.contact-info a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: var(--secondary-color);
 }
 
 .contact-info i {
     color: var(--secondary-color);
-    margin-right: 5px;
+    
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 18px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icons   a:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
 }
 
 /* --- HEADER & NAV --- */
@@ -427,6 +452,10 @@ footer {
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     }
 
+     /* ======================
+     MOBILE NAVBAR
+     ====================== */
+
     .nav-links.active {
         left: 0;
     }
@@ -436,6 +465,10 @@ footer {
         width: 100%;
         text-align: center;
     }
+
+     /* ======================
+     MOBILE HERO
+     ====================== */
 
     .hero {
         background:
@@ -470,6 +503,30 @@ footer {
     /* 🔥 eliminar el margen lateral */
     .btn-hero {
         margin-right: 0;
+    }
+
+     /* ======================
+     MOBILE TOP BAR
+     ====================== */
+
+     /* ===== TOP BAR (MÓVIL) ===== */
+    .top-bar .container {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .social-icons {
+        gap: 30px; /* más espacio entre Instagram y WhatsApp */
+    }
+
+    .social-icons a {
+        font-size: 22px;
     }
 }
 
