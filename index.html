@@ -17,27 +17,26 @@
 </head>
 <body>
 
-    <!-- Top Bar: Información de contacto inmediata -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="contact-info">
-                <a href="tel:1+8097922383">
-                    <i class="fas fa-phone-alt"></i> (809) 792-2383
-                </a>
-                <a href="mailto:coopemao1@gmail.com">
-                    <i class="fas fa-envelope"></i> coopemao1@gmail.com
-                </a>
+    <!-- Top Bar  -->
+     <div class="top-bar">
+        <div class="container top-bar-content">
+
+            <div class="top-left">
+                <i class="fas fa-phone-alt"></i>
+                <span>Atención al socio: (809) 792-2383</span>
             </div>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/coopemaord" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://wa.me/18097922383?text=Hola,%20quiero%20información%20para%20hacerme%20socio%20de%20COOPEMAO">
+
+            <div class="top-right">
+                <a href="https://wa.me/18097922383?text=Hola,%20quiero%20información%20sobre%20COOPEMAO" target="_blank">
                     <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/coopemaord" target="_blank">
+                    <i class="fab fa-instagram"></i>
                 </a>
             </div>
         </div>
-    </div>
+     </div>
+  
 
     <!-- Navegación Principal -->
     <header>
@@ -52,55 +51,72 @@
             </div>
             <nav class="nav-links" id="navLinks">
                 <a href="#inicio">Inicio</a>
-                <a href="#nosotros">Nosotros</a>
+                <a href="nosotros.html">Nosotros</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#noticias">Noticias</a>
-                <a href="#hacerse-socio" class="btn-primary">Hacerse Socio</a>
+                <a href="#hacerse-socio" class="btn-primary">Afiliarme</a>
             </nav>
         </div>
     </header>
 
-    <!-- Sección Hero (Portada) -->
-    <section class="hero" id="inicio">
-        <video autoplay muted loop playsinline class="hero-video">
-            <source src="assets/videos/hero.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+    <!-- Sección Hero (Portada Nueva Profesional) -->
+     <section class="hero" id="inicio">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Impulsamos tu crecimiento con confianza</h1>
+                <p>
+                    Cooperativa de ahorro y crédito comprometida con el desarrollo de nuestra comunidad en Santo Domingo Este, República Dominicana.
+                </p>
 
-        <div class="hero-overlay"></div>
-        <div class="hero-content container">
-            <h1>Creando Oportunidades para nuestros Socios</h1>
-            <p>Cooperativa de ahorro y crédito pensada para ti </p>
+                <div class="hero-buttons">
+                    <a href="#servicios" class="btn-hero">Solicitar Préstamo</a>
+                    <a href="#hacerse-socio" class="btn-outline-dark">Hazte Socio</a>
+                </div>
+            </div>
 
-            <div class="hero-buttons">
-                <a href="#hacerse-socio" class="btn-hero">Hacerse Socio</a>
-                <a href="#servicios" class="btn-outline">Nuestros Servicios</a>
+            <div class="hero-image">
+                <img src="assets/images/hero-institucional.jpeg" alt="Reunión cooperativa profesional">
             </div>
         </div>
-    </section>
+     </section>
+
 
     <!-- Barra de Características (Features) -->
-    <section class="container">
-        <div class="features-bar">
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    <h3>Tasas Competitivas</h3>
-                    <p>Los mejores intereses del mercado para tus ahorros.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Seguridad Garantizada</h3>
-                    <p>Tu dinero protegido con la mayor solidez financiera.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-users"></i>
-                    <h3>Beneficios Sociales</h3>
-                    <p>Programas de salud y educación para nuestros socios.</p>
-                </div>
+     <section class="trust-section">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>¿Por qué elegir COOPEMAO?</h2>
+                <p>Comprometidos con tu bienestar financiero y el desarrollo de nuestra comunidad.
+                </p>
             </div>
+
+            <div class="trust-grid">
+
+                <div class="trust-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Seguridad y Respaldo</h3>
+                    <p>Gestionamos tus ahorros con responsabilidad y transparencia</p>
+                </div>
+
+
+                <div class="trust-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Compromiso Comunitario</h3>
+                    <p>Apoyamos el crecimiento social y económico local.</p>
+                </div>
+
+                <div class="trust-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Atención Personalizada</h3>
+                    <p>Te acompañamos en cada paso de tu proceso financiero.</p>
+                </div>
+
+            </div>
+            
         </div>
-    </section>
+     </section>
+  
 
     <!-- Sección de Servicios -->
     <section class="services">
@@ -146,6 +162,8 @@
             <a href="#" class="btn-primary" style="background: white; color: var(--primary-color);">Solicitar Afiliación</a>
         </div>
     </section>
+
+    
 
     <!-- Footer -->
     <footer>
