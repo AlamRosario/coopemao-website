@@ -236,6 +236,31 @@ header{
     border-radius:10px;
     box-shadow:var(--shadow);
     transition:.3s;
+    cursor: pointer;
+}
+
+/* ===== TARJETA COMPLETAMENTE CLICKEABLE ===== */
+.service-card-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+.service-card-link:hover .service-card{
+    transform:translateY(-10px);
+}
+
+/* Flecha estilo link interno */
+.link-arrow{
+    display:inline-block;
+    margin-top:15px;
+    font-weight:600;
+    color:var(--primary-color);
+    font-size:.95rem;
+}
+
+.service-card:hover .link-arrow{
+    color:var(--primary-dark);
 }
 
 .service-card:hover{
@@ -271,6 +296,109 @@ header{
 
 .menu-toggle {
     display: none;
+}
+
+/* =====================================================
+   AHORROS
+===================================================== */
+.savings-section{
+    padding:80px 0;
+    background:white;
+    text-align:center;
+}
+
+.savings-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    margin-top:40px;
+}
+
+.saving-card{
+    background:var(--bg-light);
+    padding:35px 25px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.saving-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.saving-card i{
+    font-size:40px;
+    color:var(--primary-color);
+    margin-bottom:15px;
+}
+
+/* CALCULADORA */
+.loan-section{
+    padding:80px 0;
+    background:var(--bg-light);
+    text-align:center;
+}
+
+.loan-box{
+    max-width:520px;
+    margin:40px auto;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+}
+
+.loan-input{
+    text-align:left;
+    margin-bottom:20px;
+}
+
+.loan-input input{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    margin-top:5px;
+}
+
+.loan-result{
+    margin-top:25px;
+}
+
+.loan-result p{
+    font-size:30px;
+    font-weight:700;
+    color:var(--primary-color);
+}
+
+.loan-note{
+    margin-top:20px;
+    font-size:.9rem;
+    color:var(--text-light);
+}
+.loan-form-section{
+    padding:80px 0;
+    background:white;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.form-group{
+    text-align:left;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    margin-top:5px;
 }
 
 /* =====================================================

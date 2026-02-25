@@ -33,3 +33,41 @@ window.addEventListener("scroll", function () {
         header.classList.remove("scrolled");
     }
 });
+
+function calcularPrestamo(){
+
+    let monto = parseFloat(document.getElementById("monto").value);
+    let meses = parseInt(document.getElementById("meses").value);
+
+    const tasaAnual = 0.20;
+    const tasaMensual = tasaAnual / 12;
+
+    if(!monto || !meses){
+        alert("Completa todos los campos");
+        return;
+    }
+
+    if(monto > 500000){
+        alert("El monto máximo permitido es RD$500,000");
+        return;
+    }
+
+    let cuota =
+        monto *
+        (tasaMensual * Math.pow(1+tasaMensual, meses)) /
+        (Math.pow(1+tasaMensual, meses) - 1);
+
+    document.getElementById("resultadoCuota").innerText =
+        "RD$ " + cuota.toFixed(2);
+    // Mostrar botón después de calcular
+    document.getElementById("btnSolicitar").style.display = "inline-block";
+}
+
+document.getElementById("btnSolicitar").addEventListener("click", function(){
+
+    // bajar al formulario
+    document.querySelector("#solicitud-prestamo").scrollIntoView({
+        behavior: "smooth"
+    });
+
+});

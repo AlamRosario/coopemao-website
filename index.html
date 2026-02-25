@@ -119,7 +119,7 @@
   
 
     <!-- Sección de Servicios -->
-    <section class="services">
+    <section id="servicios" class="services">
         <div class="container">
             <div class="section-header">
                 <h2>Nuestros Productos Financieros</h2>
@@ -128,31 +128,87 @@
 
             <div class="services-grid">
                 <!-- Tarjeta 1 -->
+             <a href="#ahorros" class="service-card-link">
                 <div class="service-card">
                     <i class="fas fa-piggy-bank"></i>
-                    <h3>Cuentas de Ahorro</h3>
-                    <p>Comienza a construir tu patrimonio con nuestras cuentas de ahorro infantil, corriente y a plazo fijo.</p>
-                    <a href="#" class="link-arrow">Ver planes <i class="fas fa-arrow-right"></i></a>
+                    <h3>Productos de Ahorro</h3>
+                    <p>
+                        Opciones de ahorro diseñadas para ayudarte a construir estabilidad financiera y alcanzar tus metas.
+                    </p>
                 </div>
-
+             </a>
                 <!-- Tarjeta 2 -->
-                <div class="service-card">
-                    <i class="fa-solid fa-hand-holding-dollar"></i>
-                    <h3>Préstamos personales</h3>
-                    <p>Créditos accesibles para cubrir tus necesidades personales.</p>
-                    <a href="#" class="link-arrow">Solicitar ahora <i class="fas fa-arrow-right"></i></a>
-                </div>
+                <a href="#calculadora" class="service-card-link">
+                    <div class="service-card">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                        <h3>Préstamos personales</h3>
+                        <p>
+                            Financiamiento flexible para tus proyectos, emergencias o crecimiento personal.
+                        </p>
+                        <span class="link-arrow">
+                            Calcular mi préstamo <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
 
                 <!-- Tarjeta 3 -->
-                <div class="service-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Inversiones</h3>
-                    <p>Maximiza tu capital con nuestros certificados financieros de alta rentabilidad.</p>
-                    <a href="#" class="link-arrow">Calcular retorno <i class="fas fa-arrow-right"></i></a>
-                </div>
+                <a href="#ahorros" class="service-card-link">
+                    <div class="service-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Certificados Financieros</h3>
+                        <p>
+                            Maximiza tu capital con nuestros certificados financieros de alta rentabilidad.
+                        </p>
+                        <span class="link-arrow">
+                            Conocer más <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
+
+    <!-- OPCIONES DE AHORRO -->
+    <section id="ahorros" class="savings-section reveal">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Opciones de Ahorro</h2>
+                <p>Planes diseñados para proteger tu dinero y ayudarte a crecer financieramente.</p>
+            </div>
+
+            <div class="savings-grid">
+
+                <div class="saving-card">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Cuenta de Ahorro</h3>
+                    <p>
+                        Ideal para administrar tu dinero de forma segura y comenzar a construir estabilidad financiera.
+                    </p>
+                </div>
+
+                <div class="saving-card">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Ahorro Programado</h3>
+                    <p>
+                        Aporta mensualmente y alcanza metas personales como viajes, estudios o preyectos importantes.
+                    </p>
+                </div>
+
+                <div class="saving-card">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Planes Especiales</h3>
+                    <p>
+                        Opciones diseñadas para niños, jóvenes y adultos mayores, adaptados a cada etapa de vida.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    
 
     <!-- Call to Action -->
     <section class="cta">
@@ -162,7 +218,109 @@
             <a href="#" class="btn-primary">Solicitar Afiliación</a>
     </section>
 
-    
+    <!-- CALCULADORA DE PRÉSTAMOS -->
+    <section id="calculadora" class="loan-section reveal">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Calcula tu préstamo</h2>
+                <p>Simula tu cuota mensual antes de solicitar tu financiamiento</p>
+            </div>
+
+            <div class="loan-box">
+
+                <div class="loan-input">
+                    <label>Monto del préstamo (RD$)</label>
+                    <input type="number" id="monto" placeholder="Ej: 100000" max="500000">
+                </div>
+
+                <div class="loan-input">
+                    <label>Plazo en meses</label>
+                    <input type="number" id="meses" placeholder="Ej: 24">
+                </div>
+
+                <button class="btn-primary" onclick="calcularPrestamo()">
+                    Calcular cuota
+                </button>
+
+                <div class="loan-result">
+                    <h3>Cuota Mensual</h3>
+                    <p id="resultadoCuota">RD$ 0.00</p>
+                    <button id="btnSolicitar" class="btn-primary" style="display: none; margin: 15px;">Solicitar este préstamo
+                    </button>
+                </div>
+
+                <p class="loan-note">
+                    Nota: Tasa referencial del 1.6667% mensual. Valores estimados sujetos a evaluación y políticas de crédito vigentes en COOPEMAO.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- FORMULARIO SOLICITUD DE PRÉSTAMO -->
+     <section id="solicitud-prestamo" class="loan-form-section reveal">
+        <div class="container">
+
+            <div class="section-header">
+                <h2>Solicita tu préstamo</h2>
+                <p>Completa el formulario y uno de nuestros asesores te contactará.</p>
+            </div>
+
+            <form class="loan-form">
+                
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="tel" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email">
+                </div>
+
+                <div class="form-group">
+                    <label>¿Dónde resides?</label>
+                    <input type="text" placeholder="Ej: Santo Domingo Este" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Monto solicitado (RD$)</label>
+                    <input type="number" id="formMonto" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>Ingreso mensual aproximado</label>
+                    <input type="number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de empleo</label>
+                    <select required>
+                        <option value="">Seleccione</option>
+                        <option>Empleado</option>
+                        <option>Independiente</option>
+                        <option>Negocio propio</option>
+                    </select>
+                </div>
+
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    Enviar solicitud
+                </button>
+
+            </form>
+        </div>
+     </section>
+
 
     <!-- Footer -->
     <footer>
