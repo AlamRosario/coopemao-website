@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazte Socio | COOPEMAO</title>
+
+    <!-- Fuentes de Google (Montserrat y Open Sans para toque profesional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de FontAwesome (Versión gratuita CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos CSS personalizados -->
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+   <!-- Top Bar  -->
+     <div class="top-bar">
+        <div class="container top-bar-content">
+
+            <div class="top-left">
+                <i class="fas fa-phone-alt"></i>
+                <span>Atención al socio: (809) 792-2383</span>
+            </div>
+
+            <div class="top-right">
+                <a href="https://wa.me/18097922383?text=Hola,%20quiero%20información%20sobre%20COOPEMAO" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.instagram.com/coopemaord" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+     </div>
+
+     <!-- Navegación Principal -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <a href="index.html#inicio">
+                    <img src="assets/images/logo.svg" alt="COOPEMAO LOGO">
+                </a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-links" id="navLinks">
+                <a href="index.html#inicio">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="index.html#noticias">Noticias</a>
+                <a href="afiliacion.html" class="active-link btn-primary">Afiliarme</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de Afiliación -->
+<section class="afiliacion">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Hazte Socio de COOPEMAO</h2>
+            <p>Complete el siguiente formulario para solicitar su afiliación a nuestra cooperativa.</p>
+        </div>
+
+        <form id="formAfiliacion" class="form-afiliacion">
+
+            <div class="form-group">
+                <label>Nombre completo</label>
+                <input type="text" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>Cédula</label>
+                <input type="number" name="cedula" required>
+            </div>
+
+            <div class="form-group">
+                <label>Teléfono</label>
+                <input type="tel" name="telefono" required>
+            </div>
+
+            <div class="form-group">
+                <label>Correo electrónico</label>
+                <input type="email" name="correo">
+            </div>
+
+            <div class="form-group">
+                <label>Dirección</label>
+                <input type="text" name="direccion">
+            </div>
+
+            <div class="form-group">
+                <label>Mensaje o solicitud</label>
+                <textarea name="mensaje"></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">Enviar solicitud</button>
+
+        </form>
+
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Sobre Nosotros</h4>
+                    <p>Somos una cooperativa comprometida con el desarrollo sostenible de nuestra comunidad, ofreciendo servicios financieros éticos y transparentes.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Sabana Larga, Dr. Octavio Mejía Ricart, Santo Domingo Este</li>
+                        <li><i class="fas fa-phone"></i> (809) 792-2383</li>
+                        <li><i class="fas fa-envelope"></i> coopemao1@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cooperativa de Servicios Múltiples. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/inscripcion.js"></script>
+
+    <a href="https://wa.me/18097922383" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>

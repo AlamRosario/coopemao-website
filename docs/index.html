@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -18,7 +17,7 @@
 <body>
 
     <!-- Top Bar  -->
-     <div class="top-bar">
+    <div class="top-bar">
         <div class="container top-bar-content">
 
             <div class="top-left">
@@ -35,10 +34,10 @@
                 </a>
             </div>
         </div>
-     </div>
+    </div>
   
 
-    <!-- Navegación Principal -->
+    <!-- NAVBAR -->
     <header>
         <div class="container navbar">
             <div class="logo">
@@ -50,16 +49,16 @@
                 <i class="fas fa-bars"></i>
             </div>
             <nav class="nav-links" id="navLinks">
-                <a href="#inicio">Inicio</a>
+                <a href="index.html#inicio" class="active-link">Inicio</a>
                 <a href="nosotros.html">Nosotros</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#noticias">Noticias</a>
-                <a href="#hacerse-socio" class="btn-primary">Afiliarme</a>
+                <a href="index.html#servicios">Servicios</a>
+                <a href="index.html#noticias">Noticias</a>
+                <a href="afiliacion.html" class="btn-primary">Afiliarme</a>
             </nav>
         </div>
     </header>
 
-    <!-- Sección Hero (Portada Nueva Profesional) -->
+    <!-- HERO -->
      <section class="hero" id="inicio">
         <div class="container hero-grid">
             <div class="hero-text">
@@ -70,7 +69,7 @@
 
                 <div class="hero-buttons">
                     <a href="#servicios" class="btn-hero">Solicitar Préstamo</a>
-                    <a href="#hacerse-socio" class="btn-outline-dark">Hazte Socio</a>
+                    <a href="afiliacion.html" class="btn-outline-dark">Hazte Socio</a>
                 </div>
             </div>
 
@@ -81,7 +80,7 @@
      </section>
 
 
-    <!-- Barra de Características (Features) -->
+    <!-- TRUST -->
      <section class="trust-section">
         <div class="container">
 
@@ -118,7 +117,7 @@
      </section>
   
 
-    <!-- Sección de Servicios -->
+    <!-- SERVICIOS-->
     <section id="servicios" class="services">
         <div class="container">
             <div class="section-header">
@@ -210,13 +209,16 @@
 
     
 
-    <!-- Call to Action -->
+    <!-- CTA -->
     <section class="cta">
         <div class="container">
             <h2>¿Listo para ser parte de la familia?</h2>
             <p>Únete a más de 300 socios que confían en nosotros.</p>
-            <a href="#" class="btn-primary">Solicitar Afiliación</a>
+            <a href="afiliacion.html" class="btn-primary">Solicitar Afiliación</a>
+        </div>
     </section>
+
+    
 
     <!-- CALCULADORA DE PRÉSTAMOS -->
     <section id="calculadora" class="loan-section reveal">
@@ -269,13 +271,11 @@
 
             <form class="loan-form" id="formPrestamo">
                 
-                <div class="form-grid">
-                    
-                    <div class="form-group">
-                        <label>Nombre Completo</label>
-                        <input type="text" name="nombre" required>
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" name="nombre" required>
                 </div>
-
+                    
                 <div class="form-group">
                     <label>Teléfono</label>
                     <input type="tel" name="telefono" required>
@@ -309,8 +309,6 @@
                         <option>Independiente</option>
                         <option>Negocio propio</option>
                     </select>
-                </div>
-
                 </div>
 
                 <button type="submit" class="btn-primary">
@@ -349,6 +347,11 @@
     
     <script src="js/main.js"></script>
     <script src="js/prestamo.js"></script>
+    <script src="js/inscripcion.js"></script>
+
+    <a href="https://wa.me/18097922383" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>

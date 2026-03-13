@@ -9,7 +9,7 @@
     --text-light:#666;
     --white:#fff;
     --bg-light:#f8f9fa;
-    --shadow:0 4px 6px rgba(0,0,0,.1);
+    --shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
 *{
@@ -94,6 +94,7 @@ header{
     position:sticky;
     top:0;
     z-index:1000;
+    transition: all .3s ease;
 }
 
 .navbar{
@@ -143,12 +144,12 @@ header{
     padding:10px 25px;
     border-radius:5px;
     font-weight:700;
-    transition: all 0.25s ease;
+    transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18);;
 }
 .btn-primary:active{
     transform: translateY(-1px);
@@ -233,22 +234,31 @@ header{
 .service-card{
     background:white;
     padding:40px 30px;
-    border-radius:10px;
+    border-radius:12px;
     box-shadow:var(--shadow);
-    transition:.3s;
-    cursor: pointer;
+    transition:transform .25s ease, box-shadow .25s ease;
+    cursor:pointer;
 }
+
+.service-card-link{
+    text-decoration: none;
+    color: var(--text-dark);
+    display: block;
+}
+
+.saving-card-link:visited{
+    color: var(--text-dark);
+}
+
+
+
 
 /* ===== TARJETA COMPLETAMENTE CLICKEABLE ===== */
-.service-card-link{
-    text-decoration:none;
-    color:inherit;
-    display:block;
+.service-card:hover{
+    transform: translateY(-8px);
+    box-shadow:var(--shadow)
 }
 
-.service-card-link:hover .service-card{
-    transform:translateY(-10px);
-}
 
 /* Flecha estilo link interno */
 .link-arrow{
@@ -261,11 +271,10 @@ header{
 
 .service-card:hover .link-arrow{
     color:var(--primary-dark);
+
 }
 
-.service-card:hover{
-    transform:translateY(-10px);
-}
+
 
 .service-card i{
     font-size:3rem;
@@ -318,12 +327,12 @@ header{
     background:var(--bg-light);
     padding:35px 25px;
     border-radius:12px;
-    transition:.3s;
+    transition:transform .25s ease, box-shadow .25s ease;
 }
 
 .saving-card:hover{
     transform:translateY(-8px);
-    box-shadow:var(--shadow);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
 }
 
 .saving-card i{
@@ -399,6 +408,29 @@ header{
     border-radius:8px;
     border:1px solid #ccc;
     margin-top:5px;
+}
+/* BOTON FLOTANTE DE WHATSAPP */
+.whatsapp-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+font-size:28px;
+box-shadow:0 4px 10px rgba(0,0,0,0.3);
+z-index:1000;
+transition:transform .3s;
+}
+
+.whatsapp-btn:hover{
+transform:scale(1.1);
+transition:0.3s;
 }
 
 /* =====================================================
@@ -518,6 +550,37 @@ header{
 .president-text h2,
 .president-text h4{
     color:var(--primary-color);
+}
+/* =====================================================
+   PAGINA AFILICIACION
+===================================================== */
+.afiliacion{
+    padding:80px 0;
+}
+
+.form-afiliacion{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group input,
+.form-group textarea{
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+.form-group textarea{
+    resize:none;
+    height:120px;
 }
 
 /* =====================================================
