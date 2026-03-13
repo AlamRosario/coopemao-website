@@ -4,8 +4,16 @@ const cors = require("cors");
 
 const app = express();
 
+// =====================================================
+// MIDDLEWARES
+// =====================================================
+
 app.use(cors());
 app.use(express.json());
+
+// =====================================================
+// CONEXION A MYSQL
+// =====================================================
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -22,19 +30,24 @@ db.connect((err) => {
   }
 });
 
+// =====================================================
+// RUTA PRINCIPAL
+// =====================================================
+
 app.get("/", (req, res) => {
   res.send("Servidor Copemao funcionando");
 });
 
-app.listen(3000, () => {
-  console.log("Servidor corriendo en puerto 3000");
-});
+// =====================================================
+// GUARDAR AFILIACIONES
+// =====================================================
 
 app.post("/api/inscripciones", (req, res) => {
+
   const { nombre, apellido, cedula, telefono, correo, direccion, ocupacion } = req.body;
 
   const sql = `
-    INSERT INTO inscripciones 
+    INSERT INTO inscripciones
     (nombre, apellido, cedula, telefono, correo, direccion, ocupacion)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
@@ -43,18 +56,30 @@ app.post("/api/inscripciones", (req, res) => {
     sql,
     [nombre, apellido, cedula, telefono, correo, direccion, ocupacion],
     (err, result) => {
+
       if (err) {
         console.error(err);
-        res.status(500).json({ error: "Error guardando inscripción" });
-      } else {
-        res.json({ message: "Inscripción guardada correctamente" });
+        return res.status(500).json({
+          error: "Error guardando inscripción"
+        });
       }
+
+      res.json({
+        message: "Inscripción guardada correctamente"
+      });
+
     }
   );
+
 });
 
+// =====================================================
+// GUARDAR SOLICITUD DE PRESTAMO
+// =====================================================
+
 app.post("/api/prestamos", (req, res) => {
-  const { nombre, telefono, correo, monto, empleo } = req.body;
+
+  const { nombre, telefono, correo, empleo, monto } = req.body;
 
   const sql = `
     INSERT INTO solicitudes_prestamo
@@ -66,6 +91,7 @@ app.post("/api/prestamos", (req, res) => {
     sql,
     [nombre, telefono, correo, empleo, monto],
     (err, result) => {
+
       if (err) {
         console.error(err);
         return res.status(500).json({
@@ -76,6 +102,71 @@ app.post("/api/prestamos", (req, res) => {
       res.json({
         message: "Solicitud enviada correctamente"
       });
+
     }
   );
+
 });
+
+// =====================================================
+// VER SOLICITUDES DE PRESTAMOS
+// =====================================================
+
+app.get("/api/prestamos", (req, res) => {
+
+  const sql = `
+    SELECT *
+    FROM solicitudes_prestamo
+    ORDER BY fecha_solicitud DESC
+  `;
+
+  db.query(sql, (err, result) => {
+
+    if (err) {
+      console.error(err);
+      return res.status(500).json({
+        error: "Error obteniendo solicitudes"
+      });
+    }
+
+    res.json(result);
+
+  });
+
+});
+
+// =====================================================
+// VER INSCRIPCIONES
+// =====================================================
+
+app.get("/api/inscripciones", (req, res) => {
+
+  const sql = `
+    SELECT *
+    FROM inscripciones
+    ORDER BY id DESC
+  `;
+
+  db.query(sql, (err, result) => {
+
+    if (err) {
+      console.error(err);
+      return res.status(500).json({
+        error: "Error obteniendo inscripciones"
+      });
+    }
+
+    res.json(result);
+
+  });
+
+});
+
+// =====================================================
+// INICIAR SERVIDOR
+// =====================================================
+
+app.listen(3000, () => {
+  console.log("Servidor corriendo en puerto 3000");
+});
+
