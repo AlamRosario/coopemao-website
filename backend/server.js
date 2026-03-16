@@ -16,10 +16,11 @@ app.use(express.json());
 // =====================================================
 
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "turntable.proxy.rlwy.net",
   user: "root",
-  password: "MasterShield.05",
-  database: "copemao_db"
+  password: "lNwIVXEvRQXHohbXiyXWcLduuIGNykdZ",
+  database: "railway",
+  port: 46423
 });
 
 db.connect((err) => {
