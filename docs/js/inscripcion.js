@@ -28,7 +28,7 @@ try{
 
 /* ENVIAR DATOS AL SERVIDOR */
 
-const response = await fetch("https://backend-coopemao.onrender.com/inscripcion",{
+const response = await fetch("https://backend-coopemao.onrender.com/api/inscripciones",{
 
 method:"POST",
 

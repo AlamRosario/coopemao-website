@@ -29,7 +29,7 @@ try {
 
 /* ENVIAR DATOS AL SERVIDOR */
 
-const response = await fetch("https://backend-coopemao.onrender.com/prestamo", {
+const response = await fetch("https://backend-coopemao.onrender.com/prestamo/api/prestamos", {
 
 method: "POST",
 
