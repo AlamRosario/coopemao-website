@@ -64,6 +64,3 @@ formAfiliacion.reset();
 
 }
 
-app.post("/api/inscripciones", (req, res) => {
-
-  console.log("Datos recibidos:", req.body);
