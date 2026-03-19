@@ -12,7 +12,13 @@
 
   <!-- SIDEBAR -->
   <aside class="w-64 bg-blue-900 text-white min-h-screen p-5">
-    <h1 class="text-2xl font-bold mb-10">COOPEMAO</h1>
+    
+    <!-- LOGO + NOMBRE -->
+    <div class="flex items-center gap-2 mb-10">
+      <img src="assets/images/logo.svg" class="w-10 h-10">
+      <h1 class="text-xl font-bold">COOPEMAO</h1>
+    </div>
+
     <ul>
       <li class="mb-4">📊 Dashboard</li>
       <li class="mb-4">👥 Afiliaciones</li>
@@ -23,7 +29,10 @@
   <!-- MAIN -->
   <main class="flex-1 p-6">
 
-    <h1 class="text-3xl font-bold mb-6">Panel Administrativo</h1>
+    <!-- HEADER -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold">Panel Administrativo</h1>
+    </div>
 
     <!-- CARDS -->
     <div class="grid grid-cols-3 gap-4 mb-8">
@@ -45,16 +54,23 @@
 
     <!-- AFILIACIONES -->
     <div class="bg-white p-4 rounded shadow mb-8">
-      <h2 class="text-xl font-bold mb-3">Afiliaciones</h2>
+
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="text-xl font-bold">Afiliaciones</h2>
+
         <button onclick="toggleHistorial()"
-            class="mb-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
-            Ver historial
-         </button>
-        <input 
+          class="bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+          Ver historial
+        </button>
+      </div>
+
+      <input 
         id="buscarAfiliacion"
         oninput="buscarAfiliacion()"
         placeholder="Buscar afiliado..."
-        class="mb-3 p-2 border w-full rounden" />
+        class="mb-3 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
       <table class="w-full text-sm">
         <thead class="bg-gray-200">
           <tr>
@@ -68,16 +84,21 @@
         </thead>
         <tbody id="tablaAfiliaciones"></tbody>
       </table>
+
     </div>
 
     <!-- PRESTAMOS -->
     <div class="bg-white p-4 rounded shadow">
+
       <h2 class="text-xl font-bold mb-3">Solicitudes de Préstamo</h2>
+
       <input
-      id="buscarPrestamo"
-      oninput="buscarPrestamo()"
-      placeholder="Buscar préstamo..."
-      class="mb-3 p-2 border w-full rounded" />
+        id="buscarPrestamo"
+        oninput="buscarPrestamo()"
+        placeholder="Buscar préstamo..."
+        class="mb-3 p-2 border w-full rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+
       <table class="w-full text-sm">
         <thead class="bg-gray-200">
           <tr>
@@ -91,6 +112,7 @@
         </thead>
         <tbody id="tablaPrestamos"></tbody>
       </table>
+
     </div>
 
   </main>

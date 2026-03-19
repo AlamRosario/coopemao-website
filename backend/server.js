@@ -294,3 +294,37 @@ app.put("/api/prestamos/:id", (req, res) => {
   });
 
 });
+
+// =====================================================
+// LOGIN ADMIN
+// =====================================================
+
+app.post("/api/login", (req, res) => {
+
+  const { usuario, password } = req.body;
+
+  const sql = `
+    SELECT * FROM admin_users
+    WHERE usuario = ? AND password = ?
+  `;
+
+  db.query(sql, [usuario, password], (err, result) => {
+
+    if (err) {
+      return res.status(500).json({ message: "Error servidor" });
+    }
+
+    if (result.length === 0) {
+      return res.status(401).json({ message: "Credenciales incorrectas" });
+    }
+
+    const token = Date.now() + "_" + usuario;
+
+    res.json({
+      token,
+      usuario
+    });
+
+  });
+
+});
