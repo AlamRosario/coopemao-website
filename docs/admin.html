@@ -46,6 +46,15 @@
     <!-- AFILIACIONES -->
     <div class="bg-white p-4 rounded shadow mb-8">
       <h2 class="text-xl font-bold mb-3">Afiliaciones</h2>
+        <button onclick="toggleHistorial()"
+            class="mb-3 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+            Ver historial
+         </button>
+        <input 
+        id="buscarAfiliacion"
+        oninput="buscarAfiliacion()"
+        placeholder="Buscar afiliado..."
+        class="mb-3 p-2 border w-full rounden" />
       <table class="w-full text-sm">
         <thead class="bg-gray-200">
           <tr>
@@ -64,6 +73,11 @@
     <!-- PRESTAMOS -->
     <div class="bg-white p-4 rounded shadow">
       <h2 class="text-xl font-bold mb-3">Solicitudes de Préstamo</h2>
+      <input
+      id="buscarPrestamo"
+      oninput="buscarPrestamo()"
+      placeholder="Buscar préstamo..."
+      class="mb-3 p-2 border w-full rounded" />
       <table class="w-full text-sm">
         <thead class="bg-gray-200">
           <tr>

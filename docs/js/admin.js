@@ -1,20 +1,43 @@
 const API = "https://backend-coopemao.onrender.com";
 
+let afiliaciones = [];
+let prestamos = [];
+let verHistorial = false;
+
+// ======================
+// INICIALIZAR
+// ======================
+cargarDatos();
+
+async function cargarDatos() {
+  await cargarAfiliaciones();
+  await cargarPrestamos();
+}
+
 // ======================
 // AFILIACIONES
 // ======================
-fetch(`${API}/api/inscripciones`)
-  .then(res => res.json())
-  .then(data => {
+async function cargarAfiliaciones() {
+  const res = await fetch(`${API}/api/inscripciones`);
+  afiliaciones = await res.json();
 
-    document.getElementById("totalAfiliaciones").textContent = data.length;
+  renderAfiliaciones();
+}
 
-    const tabla = document.getElementById("tablaAfiliaciones");
-    tabla.innerHTML = ""; // limpiar antes
+function renderAfiliaciones() {
+  const tabla = document.getElementById("tablaAfiliaciones");
+  const busqueda = document.getElementById("buscarAfiliacion")?.value.toLowerCase() || "";
 
-    data.forEach(item => {
+  tabla.innerHTML = "";
+
+  afiliaciones
+    .filter(item => {
+      if (!verHistorial && item.estado === "Completado") return false;
+      return item.nombre.toLowerCase().includes(busqueda);
+    })
+    .forEach(item => {
       tabla.innerHTML += `
-        <tr class="border-b">
+        <tr class="border-b hover:bg-gray-50">
           <td class="p-2">${item.nombre}</td>
           <td>${item.cedula}</td>
           <td>${item.telefono}</td>
@@ -22,160 +45,140 @@ fetch(`${API}/api/inscripciones`)
 
           <td>
             <span class="${
-              item.estado === 'Completado'
-                ? 'bg-green-200 text-green-800'
-                : 'bg-yellow-200 text-yellow-800'
+              item.estado === "Completado"
+                ? "bg-green-200 text-green-800"
+                : "bg-yellow-200 text-yellow-800"
             } px-2 py-1 rounded text-xs">
-              ${item.estado || 'Pendiente'}
+              ${item.estado || "Pendiente"}
             </span>
           </td>
 
           <td>
             <button onclick="completar(${item.id})"
-              class="bg-green-500 text-white px-2 py-1 rounded text-xs hover:bg-green-600">
+              class="bg-green-500 text-white px-2 py-1 rounded text-xs">
               Completar
             </button>
           </td>
-
         </tr>
       `;
     });
-
-  });
-
+}
 
 // ======================
 // PRESTAMOS
 // ======================
-fetch(`${API}/api/prestamos`)
-  .then(res => res.json())
-  .then(data => {
+async function cargarPrestamos() {
+  const res = await fetch(`${API}/api/prestamos`);
+  prestamos = await res.json();
 
-    document.getElementById("totalPrestamos").textContent = data.length;
-
-    let totalMonto = 0;
-
-    const tabla = document.getElementById("tablaPrestamos");
-    tabla.innerHTML = ""; // limpiar
-
-    data.forEach(item => {
-
-      totalMonto += Number(item.monto);
-
-     tabla.innerHTML += `
-  <tr class="border-b">
-    <td class="p-2">${item.nombre}</td>
-    <td>RD$${item.monto}</td>
-    <td>${item.tipo_prestamo}</td>
-    <td>RD$${item.ingreso}</td>
-
-    <td>
-      <span class="${
-        item.estado === 'Aprobado'
-          ? 'bg-green-200 text-green-800'
-          : item.estado === 'Rechazado'
-          ? 'bg-red-200 text-red-800'
-          : 'bg-yellow-200 text-yellow-800'
-      } px-2 py-1 rounded text-xs">
-        ${item.estado || 'Pendiente'}
-      </span>
-    </td>
-
-    <td class="flex gap-2">
-      <button onclick="cambiarEstado(${item.id}, 'Aprobado')"
-        class="bg-green-500 text-white px-2 py-1 rounded text-xs">
-        Aprobar
-      </button>
-
-      <button onclick="cambiarEstado(${item.id}, 'Rechazado')"
-        class="bg-red-500 text-white px-2 py-1 rounded text-xs">
-        Rechazar
-      </button>
-    </td>
-  </tr>
-`;
-    });
-
-    document.getElementById("montoTotal").textContent = "RD$" + totalMonto;
-
-  });
-
-
-// ======================
-// ELIMINAR PRESTAMO
-// ======================
-async function eliminar(id) {
-
-  if (!confirm("¿Seguro que quieres eliminar esta solicitud?")) return;
-
-  try {
-
-    const res = await fetch(`${API}/api/prestamos/${id}`, {
-      method: "DELETE"
-    });
-
-    const data = await res.json();
-
-    alert(data.message);
-
-    location.reload();
-
-  } catch (error) {
-    console.error(error);
-    alert("Error eliminando");
-  }
-
+  renderPrestamos();
 }
 
+function renderPrestamos() {
+  const tabla = document.getElementById("tablaPrestamos");
+  const busqueda = document.getElementById("buscarPrestamo")?.value.toLowerCase() || "";
 
-// ======================
-// COMPLETAR AFILIACION
-// ======================
-async function completar(id) {
+  tabla.innerHTML = "";
 
-  if (!confirm("¿Marcar como completado?")) return;
+  let total = 0;
 
-  try {
+  prestamos
+    .filter(item => {
+      if (!verHistorial && item.estado !== "Pendiente") return false;
+      return item.nombre.toLowerCase().includes(busqueda);
+    })
+    .forEach(item => {
 
-    const res = await fetch(`${API}/api/inscripciones/${id}`, {
-      method: "PUT"
+      total += Number(item.monto);
+
+      tabla.innerHTML += `
+        <tr class="border-b hover:bg-gray-50">
+          <td class="p-2">${item.nombre}</td>
+          <td>RD$${item.monto}</td>
+          <td>${item.tipo_prestamo}</td>
+          <td>RD$${item.ingreso}</td>
+
+          <td>
+            <span class="${
+              item.estado === "Aprobado"
+                ? "bg-green-200 text-green-800"
+                : item.estado === "Rechazado"
+                ? "bg-red-200 text-red-800"
+                : "bg-yellow-200 text-yellow-800"
+            } px-2 py-1 rounded text-xs">
+              ${item.estado || "Pendiente"}
+            </span>
+          </td>
+
+          <td class="flex gap-2">
+            <button onclick="cambiarEstado(${item.id}, 'Aprobado')"
+              class="bg-green-500 text-white px-2 py-1 rounded text-xs">
+              ✔
+            </button>
+
+            <button onclick="cambiarEstado(${item.id}, 'Rechazado')"
+              class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+              ✖
+            </button>
+
+            <button onclick="eliminar(${item.id})"
+              class="bg-gray-600 text-white px-2 py-1 rounded text-xs">
+              🗑
+            </button>
+          </td>
+        </tr>
+      `;
     });
 
-    const data = await res.json();
+  document.getElementById("totalPrestamos").textContent = prestamos.length;
+  document.getElementById("montoTotal").textContent = "RD$" + total;
+  document.getElementById("totalAfiliaciones").textContent = afiliaciones.length;
+}
 
-    alert(data.message);
-
-    location.reload();
-
-  } catch (error) {
-    console.error(error);
-    alert("Error actualizando");
-  }
-
+// ======================
+// ACCIONES
+// ======================
+async function completar(id) {
+  await fetch(`${API}/api/inscripciones/${id}`, { method: "PUT" });
+  cargarAfiliaciones();
 }
 
 async function cambiarEstado(id, estado) {
+  await fetch(`${API}/api/prestamos/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ estado })
+  });
 
-  if (!confirm(`¿Seguro que quieres marcar como ${estado}?`)) return;
+  cargarPrestamos();
+}
 
-  try {
+async function eliminar(id) {
+  if (!confirm("¿Eliminar solicitud?")) return;
 
-    const res = await fetch(`${API}/api/prestamos/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ estado })
-    });
+  await fetch(`${API}/api/prestamos/${id}`, {
+    method: "DELETE"
+  });
 
-    const data = await res.json();
+  cargarPrestamos();
+}
 
-    alert(data.message);
+// ======================
+// BUSCADOR
+// ======================
+function buscarAfiliacion() {
+  renderAfiliaciones();
+}
 
-    location.reload();
+function buscarPrestamo() {
+  renderPrestamos();
+}
 
-  } catch (error) {
-    alert("Error actualizando estado");
-  }
-
+// ======================
+// HISTORIAL
+// ======================
+function toggleHistorial() {
+  verHistorial = !verHistorial;
+  renderAfiliaciones();
+  renderPrestamos();
 }
