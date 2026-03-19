@@ -48,23 +48,38 @@ app.get("/", (req, res) => {
 
 app.post("/api/inscripciones", (req, res) => {
 
-  const { nombre, apellido, cedula, telefono, correo, direccion, ocupacion } = req.body;
+  const { 
+    nombre,
+    cedula, 
+    telefono, 
+    correo, 
+    direccion, 
+    ocupacion, 
+    mensaje 
+  } = req.body;
+
+  // Validación básica
+  if (!nombre || !cedula || !telefono) {
+    return res.status(400).json({
+      message: "Faltan datos obligatorios"
+    });
+  }
 
   const sql = `
     INSERT INTO inscripciones
-    (nombre, apellido, cedula, telefono, correo, direccion, ocupacion)
+    (nombre, cedula, telefono, correo, direccion, ocupacion, mensaje)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `;
 
   db.query(
     sql,
-    [nombre, apellido, cedula, telefono, correo, direccion, ocupacion],
+    [nombre, cedula, telefono, correo, direccion, ocupacion, mensaje],
     (err, result) => {
 
       if (err) {
         console.error(err);
         return res.status(500).json({
-          error: "Error guardando inscripción"
+          message: "Error guardando inscripción"
         });
       }
 
@@ -83,17 +98,33 @@ app.post("/api/inscripciones", (req, res) => {
 
 app.post("/api/prestamos", (req, res) => {
 
-  const { nombre, telefono, correo, empleo, monto } = req.body;
+  const { 
+    nombre, 
+    telefono, 
+    correo, 
+    direccion, 
+    ingreso, 
+    empleo, 
+    tipo_prestamo, 
+    monto 
+  } = req.body;
+
+  // Validación básica
+if (!nombre || !telefono || !direccion || !ingreso || !empleo || !tipo_prestamo || !monto) {
+    return res.status(400).json({
+      message: "Faltan datos obligatorios"
+    });
+  }
 
   const sql = `
     INSERT INTO solicitudes_prestamo
-    (nombre, telefono, correo, tipo_prestamo, monto)
-    VALUES (?, ?, ?, ?, ?)
+    (nombre, telefono, correo, direccion, ingreso, empleo, tipo_prestamo, monto)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `;
 
   db.query(
     sql,
-    [nombre, telefono, correo, empleo, monto],
+    [nombre, telefono, correo, direccion, ingreso, empleo, tipo_prestamo, monto],
     (err, result) => {
 
       if (err) {
@@ -129,7 +160,7 @@ app.get("/api/prestamos", (req, res) => {
     if (err) {
       console.error(err);
       return res.status(500).json({
-        error: "Error obteniendo solicitudes"
+        message: "Error obteniendo solicitudes"
       });
     }
 
@@ -156,7 +187,7 @@ app.get("/api/inscripciones", (req, res) => {
     if (err) {
       console.error(err);
       return res.status(500).json({
-        error: "Error obteniendo inscripciones"
+        message: "Error obteniendo inscripciones"
       });
     }
 
