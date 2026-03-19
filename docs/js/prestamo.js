@@ -14,17 +14,15 @@ e.preventDefault();
 /* OBTENER DATOS DEL FORMULARIO */
 
 const data = {
-
-nombre: formPrestamo.nombre.value,
-telefono: formPrestamo.telefono.value,
-correo: formPrestamo.correo.value,
-direccion: formPrestamo.direccion.value,
-monto: formPrestamo.monto.value,
-ingreso: formPrestamo.ingreso.value,
-empleo: formPrestamo.empleo.value
-
+  nombre: formPrestamo.nombre.value,
+  telefono: formPrestamo.telefono.value,
+  correo: formPrestamo.correo.value,
+  direccion: formPrestamo.direccion.value,
+  ingreso: formPrestamo.ingreso.value,
+  empleo: formPrestamo.empleo.value,
+  tipo_prestamo: formPrestamo.tipo_prestamo.value,
+  monto: formPrestamo.monto.value
 };
-
 try {
 
 /* ENVIAR DATOS AL SERVIDOR */
@@ -40,6 +38,10 @@ headers: {
 body: JSON.stringify(data)
 
 });
+
+if (!response.ok) {
+  throw new Error("Error en la respuesta del servidor");
+}
 
 const result = await response.json();
 

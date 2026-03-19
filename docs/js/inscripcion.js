@@ -20,6 +20,7 @@ cedula: formAfiliacion.cedula.value,
 telefono: formAfiliacion.telefono.value,
 correo: formAfiliacion.correo.value,
 direccion: formAfiliacion.direccion.value,
+ocupacion: formAfiliacion.ocupacion.value,
 mensaje: formAfiliacion.mensaje.value
 
 };
@@ -40,6 +41,10 @@ body:JSON.stringify(data)
 
 });
 
+if (!response.ok) {
+  throw new Error("Error en la respuesta del servidor");
+}
+
 const result = await response.json();
 
 /* RESPUESTA DEL SERVIDOR */
@@ -54,7 +59,7 @@ catch(error){
 
 console.error(error);
 
-alert("Solicitud enviada correctamente. Nos pondremos en contacto contigo.");
+alert("Hubo un error al enviar la solicitud. Intenta de nuevo.");
 
 formAfiliacion.reset();
 
