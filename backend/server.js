@@ -233,3 +233,64 @@ app.delete("/api/prestamos/:id", (req, res) => {
   });
 
 });
+
+// =====================================================
+// ACTUALIZAR ESTADO AFILIACION
+// =====================================================
+
+app.put("/api/inscripciones/:id", (req, res) => {
+
+  const { id } = req.params;
+
+  const sql = `
+    UPDATE inscripciones
+    SET estado = 'Completado'
+    WHERE id = ?
+  `;
+
+  db.query(sql, [id], (err, result) => {
+
+    if (err) {
+      return res.status(500).json({
+        message: "Error actualizando estado"
+      });
+    }
+
+    res.json({
+      message: "Afiliación completada"
+    });
+
+  });
+
+});
+
+// =====================================================
+// ACTUALIZAR ESTADO PRESTAMO
+// =====================================================
+
+app.put("/api/prestamos/:id", (req, res) => {
+
+  const { id } = req.params;
+  const { estado } = req.body;
+
+  const sql = `
+    UPDATE solicitudes_prestamo
+    SET estado = ?
+    WHERE id = ?
+  `;
+
+  db.query(sql, [estado, id], (err, result) => {
+
+    if (err) {
+      return res.status(500).json({
+        message: "Error actualizando estado"
+      });
+    }
+
+    res.json({
+      message: "Estado actualizado"
+    });
+
+  });
+
+});
