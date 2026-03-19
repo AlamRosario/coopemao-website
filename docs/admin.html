@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Coopemao</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+<div class="flex">
+
+  <!-- SIDEBAR -->
+  <aside class="w-64 bg-blue-900 text-white min-h-screen p-5">
+    <h1 class="text-2xl font-bold mb-10">COOPEMAO</h1>
+    <ul>
+      <li class="mb-4">📊 Dashboard</li>
+      <li class="mb-4">👥 Afiliaciones</li>
+      <li class="mb-4">💰 Préstamos</li>
+    </ul>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-1 p-6">
+
+    <h1 class="text-3xl font-bold mb-6">Panel Administrativo</h1>
+
+    <!-- CARDS -->
+    <div class="grid grid-cols-3 gap-4 mb-8">
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-gray-500">Afiliaciones</h2>
+        <p id="totalAfiliaciones" class="text-2xl font-bold">0</p>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-gray-500">Préstamos</h2>
+        <p id="totalPrestamos" class="text-2xl font-bold">0</p>
+      </div>
+
+      <div class="bg-white p-4 rounded shadow">
+        <h2 class="text-gray-500">Monto total</h2>
+        <p id="montoTotal" class="text-2xl font-bold">RD$0</p>
+      </div>
+    </div>
+
+    <!-- AFILIACIONES -->
+    <div class="bg-white p-4 rounded shadow mb-8">
+      <h2 class="text-xl font-bold mb-3">Afiliaciones</h2>
+      <table class="w-full text-sm">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="p-2">Nombre</th>
+            <th>Cédula</th>
+            <th>Teléfono</th>
+            <th>Ocupación</th>
+          </tr>
+        </thead>
+        <tbody id="tablaAfiliaciones"></tbody>
+      </table>
+    </div>
+
+    <!-- PRESTAMOS -->
+    <div class="bg-white p-4 rounded shadow">
+      <h2 class="text-xl font-bold mb-3">Solicitudes de Préstamo</h2>
+      <table class="w-full text-sm">
+        <thead class="bg-gray-200">
+          <tr>
+            <th class="p-2">Nombre</th>
+            <th>Monto</th>
+            <th>Tipo</th>
+            <th>Ingreso</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody id="tablaPrestamos"></tbody>
+      </table>
+    </div>
+
+  </main>
+
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
