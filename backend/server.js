@@ -206,3 +206,30 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Servidor corriendo en puerto " + PORT);
 });
+
+// =====================================================
+// ELIMINAR PRESTAMO
+// =====================================================
+
+app.delete("/api/prestamos/:id", (req, res) => {
+
+  const { id } = req.params;
+
+  const sql = "DELETE FROM solicitudes_prestamo WHERE id = ?";
+
+  db.query(sql, [id], (err, result) => {
+
+    if (err) {
+      console.error(err);
+      return res.status(500).json({
+        message: "Error eliminando"
+      });
+    }
+
+    res.json({
+      message: "Eliminado correctamente"
+    });
+
+  });
+
+});
