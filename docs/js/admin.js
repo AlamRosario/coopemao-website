@@ -61,16 +61,19 @@ function renderAfiliaciones() {
             </span>
           </td>
 
-          <td class="flex gap-2">
-            <button onclick="verDetalleAfiliacion(${item.id})"
-              class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
-              Ver
-            </button>
+          <td>
+            <div class="flex gap-2">
+              <button onclick="verDetalleAfiliacion(${item.id})"
+                class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                Ver
+              </button>
 
-            <button onclick="completar(${item.id})"
-              class="bg-green-500 text-white px-2 py-1 rounded text-xs">
-              ✔
-            </button>
+              <button onclick="completar(${item.id})"
+                class="bg-green-500 text-white px-2 py-1 rounded text-xs">
+                ✔
+              </button>
+            </div>
+            
           </td>
         </tr>
       `;
@@ -123,27 +126,30 @@ function renderPrestamos() {
             </span>
           </td>
 
-          <td class="flex gap-2">
+          <td>
+            <div class="flex gap-2">
+              <button onclick="verDetallePrestamo(${item.id})"
+                class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+                Ver
+              </button>
 
-            <button onclick="verDetallePrestamo(${item.id})"
-              class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
-              Ver
-            </button>
+              <button onclick="cambiarEstado(${item.id}, 'Aprobado')"
+                class="bg-green-500 text-white px-2 py-1 rounded text-xs">
+                ✔
+              </button>
 
-            <button onclick="cambiarEstado(${item.id}, 'Aprobado')"
-              class="bg-green-500 text-white px-2 py-1 rounded text-xs">
-              ✔
-            </button>
+              <button onclick="cambiarEstado(${item.id}, 'Rechazado')"
+                class="bg-red-500 text-white px-2 py-1 rounded text-xs">
+                ✖
+              </button>
 
-            <button onclick="cambiarEstado(${item.id}, 'Rechazado')"
-              class="bg-red-500 text-white px-2 py-1 rounded text-xs">
-              ✖
-            </button>
+              <button onclick="eliminar(${item.id})"
+                class="bg-gray-600 text-white px-2 py-1 rounded text-xs">
+                🗑
+              </button>
+            </div>
 
-            <button onclick="eliminar(${item.id})"
-              class="bg-gray-600 text-white px-2 py-1 rounded text-xs">
-              🗑
-            </button>
+            
           </td>
         </tr>
       `;
