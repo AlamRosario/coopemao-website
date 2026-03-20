@@ -1,5 +1,13 @@
 const API = "https://backend-coopemao.onrender.com";
 
+const token = localStorage.getItem("token");
+const expira = localStorage.getItem("expira");
+
+if (!token || Date.now() > expira) {
+  localStorage.clear();
+  window.location.href = "login.html";
+}
+
 let afiliaciones = [];
 let prestamos = [];
 let verHistorial = false;
@@ -181,4 +189,9 @@ function toggleHistorial() {
   verHistorial = !verHistorial;
   renderAfiliaciones();
   renderPrestamos();
+}
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "login.html";
 }
