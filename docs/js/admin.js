@@ -170,7 +170,10 @@ function verDetalleAfiliacion(id) {
     <p><strong>Nombre:</strong> ${item.nombre}</p>
     <p><strong>Cédula:</strong> ${item.cedula}</p>
     <p><strong>Teléfono:</strong> ${item.telefono}</p>
+    <p><strong>Correo:</strong> ${item.correo || "N/A"}</p>
+    <p><strong>Dirección:</strong> ${item.direccion || "N/A"}</p>
     <p><strong>Ocupación:</strong> ${item.ocupacion}</p>
+    <p><strong>Mensaje:</strong> ${item.mensaje || "N/A"}</p>
     <p><strong>Estado:</strong> ${item.estado}</p>
   `;
 
@@ -182,9 +185,13 @@ function verDetallePrestamo(id) {
 
   document.getElementById("contenidoDetalle").innerHTML = `
     <p><strong>Nombre:</strong> ${item.nombre}</p>
+    <p><strong>Teléfono:</strong> ${item.telefono}</p>
+    <p><strong>Correo:</strong> ${item.correo || "N/A"}</p>
+    <p><strong>Dirección:</strong> ${item.direccion}</p>
     <p><strong>Monto:</strong> RD$${item.monto}</p>
-    <p><strong>Tipo:</strong> ${item.tipo_prestamo}</p>
     <p><strong>Ingreso:</strong> RD$${item.ingreso}</p>
+    <p><strong>Tipo de empleo:</strong> ${item.empleo}</p>
+    <p><strong>Tipo de préstamo:</strong> ${item.tipo_prestamo}</p>
     <p><strong>Estado:</strong> ${item.estado}</p>
   `;
 
