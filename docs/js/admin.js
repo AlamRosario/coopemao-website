@@ -23,7 +23,7 @@ async function cargarDatos() {
 }
 
 // ======================
-// AFILIACIONES
+// AFILIACIONES (INSCRIPCIONES)
 // ======================
 async function cargarAfiliaciones() {
   const res = await fetch(`${API}/api/inscripciones`);
@@ -61,10 +61,15 @@ function renderAfiliaciones() {
             </span>
           </td>
 
-          <td>
+          <td class="flex gap-2">
+            <button onclick="verDetalleAfiliacion(${item.id})"
+              class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+              Ver
+            </button>
+
             <button onclick="completar(${item.id})"
               class="bg-green-500 text-white px-2 py-1 rounded text-xs">
-              Completar
+              ✔
             </button>
           </td>
         </tr>
@@ -73,7 +78,7 @@ function renderAfiliaciones() {
 }
 
 // ======================
-// PRESTAMOS
+// PRÉSTAMOS
 // ======================
 async function cargarPrestamos() {
   const res = await fetch(`${API}/api/prestamos`);
@@ -119,6 +124,12 @@ function renderPrestamos() {
           </td>
 
           <td class="flex gap-2">
+
+            <button onclick="verDetallePrestamo(${item.id})"
+              class="bg-blue-500 text-white px-2 py-1 rounded text-xs">
+              Ver
+            </button>
+
             <button onclick="cambiarEstado(${item.id}, 'Aprobado')"
               class="bg-green-500 text-white px-2 py-1 rounded text-xs">
               ✔
@@ -141,6 +152,49 @@ function renderPrestamos() {
   document.getElementById("totalPrestamos").textContent = prestamos.length;
   document.getElementById("montoTotal").textContent = "RD$" + total;
   document.getElementById("totalAfiliaciones").textContent = afiliaciones.length;
+}
+
+// ======================
+// MODAL DETALLE
+// ======================
+function verDetalleAfiliacion(id) {
+  const item = afiliaciones.find(a => a.id === id);
+
+  document.getElementById("contenidoDetalle").innerHTML = `
+    <p><strong>Nombre:</strong> ${item.nombre}</p>
+    <p><strong>Cédula:</strong> ${item.cedula}</p>
+    <p><strong>Teléfono:</strong> ${item.telefono}</p>
+    <p><strong>Ocupación:</strong> ${item.ocupacion}</p>
+    <p><strong>Estado:</strong> ${item.estado}</p>
+  `;
+
+  abrirModal();
+}
+
+function verDetallePrestamo(id) {
+  const item = prestamos.find(p => p.id === id);
+
+  document.getElementById("contenidoDetalle").innerHTML = `
+    <p><strong>Nombre:</strong> ${item.nombre}</p>
+    <p><strong>Monto:</strong> RD$${item.monto}</p>
+    <p><strong>Tipo:</strong> ${item.tipo_prestamo}</p>
+    <p><strong>Ingreso:</strong> RD$${item.ingreso}</p>
+    <p><strong>Estado:</strong> ${item.estado}</p>
+  `;
+
+  abrirModal();
+}
+
+function abrirModal() {
+  const modal = document.getElementById("modalDetalle");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+}
+
+function cerrarModal() {
+  const modal = document.getElementById("modalDetalle");
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
 }
 
 // ======================
@@ -191,6 +245,9 @@ function toggleHistorial() {
   renderPrestamos();
 }
 
+// ======================
+// LOGOUT
+// ======================
 function logout() {
   localStorage.clear();
   window.location.href = "login.html";
