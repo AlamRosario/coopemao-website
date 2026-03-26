@@ -63,7 +63,7 @@ const result = await response.json();
 
 /* RESPUESTA DEL SERVIDOR */
 
-mostrarToast(result.message || "Solicitud enviada correctamente");
+mostrarToast(result.message || "Solicitud enviada. Nos comunicaremos contigo pronto 📞");
 
 formAfiliacion.reset();
 
