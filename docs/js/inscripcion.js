@@ -1,3 +1,17 @@
+function mostrarToast(mensaje, tipo = "success") {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = mensaje;
+    toast.className = "toast show";
+
+    if (tipo === "error") {
+        toast.classList.add("error");
+    }
+
+    setTimeout(() => {
+        toast.className = "toast";
+    }, 3000);
+}
 /* =====================================================
 FORMULARIO DE AFILIACION
 ENVIA LOS DATOS AL SERVIDOR
@@ -49,7 +63,7 @@ const result = await response.json();
 
 /* RESPUESTA DEL SERVIDOR */
 
-alert(result.message || "Solicitud enviada correctamente");
+mostrarToast(result.message || "Solicitud enviada correctamente");
 
 formAfiliacion.reset();
 

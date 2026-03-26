@@ -85,6 +85,10 @@ ul{ list-style:none; }
     transform:scale(1.15);
 }
 
+.top-left a {
+    color: inherit;
+    text-decoration: none;
+}
 /* =====================================================
    NAVBAR
 ===================================================== */
@@ -578,6 +582,32 @@ transition:0.3s;
 .president-text h2,
 .president-text h4{
     color:var(--primary-color);
+}
+
+/* PAGINA DE SERVICIOS */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #28a745;
+    color: #fff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.error {
+    background: #dc3545;
 }
 /* =====================================================
    PAGINA AFILICIACION

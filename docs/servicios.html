@@ -8,8 +8,7 @@
     <meta property="og:image" content="https://coopemao-website.netlify.app/assets/images/logo.svg">
     <meta property="og:url" content="https://coopemao-website.netlify.app">
     <meta property="og:type" content="website">
-    <title>Hazte Socio | COOPEMAO</title>
-
+    <title>Servicios | COOPEMAO</title>
     <!-- Fuentes de Google (Montserrat y Open Sans para toque profesional) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
@@ -20,13 +19,13 @@
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-   <!-- Top Bar  -->
-<div class="top-bar">
+<!-- Top Bar  -->
+    <div class="top-bar">
         <div class="container top-bar-content">
 
             <div class="top-left">
                 <i class="fas fa-phone-alt"></i>
-                 <a href="tel:+18097922383">Atención al socio: (809) 792-2383</a>
+                <a href="tel:+18097922383">Atención al socio: (809) 792-2383</a>
             </div>
 
             <div class="top-right">
@@ -38,82 +37,33 @@
                 </a>
             </div>
         </div>
-</div>
+    </div>
+  
 
-     <!-- Navegación Principal -->
+<!-- NAVBAR -->
 <header>
         <div class="container navbar">
             <div class="logo">
-                <a href="index.html#inicio">
+                <a href="#inicio">
                     <img src="assets/images/logo.svg" alt="COOPEMAO LOGO">
                 </a>
             </div>
 
-            <a href="login.html" class="btn-admin">Panel Administrativo</a>
+            
             <div class="menu-toggle" id="menu-toggle">
                 <i class="fas fa-bars"></i>
             </div>
             <nav class="nav-links" id="navLinks">
-                <a href="index.html#inicio">Inicio</a>
+                <a href="index.html#inicio" class="active-link">Inicio</a>
                 <a href="nosotros.html">Nosotros</a>
                 <a href="servicios.html">Servicios</a>
                 <a href="noticias.html">Noticias</a>
-                <a href="afiliacion.html" class="active-link btn-primary">Afiliarme</a>
+                <a href="afiliacion.html" class="btn-primary">Afiliarme</a>
             </nav>
         </div>
 </header>
 
-    <!-- Sección de Afiliación -->
-<section class="afiliacion">
-    <div class="container">
-
-        <div class="section-title">
-            <h2>Hazte Socio de COOPEMAO</h2>
-            <p>Complete el siguiente formulario para solicitar su afiliación a nuestra cooperativa.</p>
-        </div>
-
-        <form id="formAfiliacion" class="form-afiliacion">
-
-            <div class="form-group">
-                <label>Nombre completo</label>
-                <input type="text" name="nombre" required>
-            </div>
-
-            <div class="form-group">
-                <label>Cédula</label>
-                <input type="number" name="cedula" required>
-            </div>
-
-            <div class="form-group">
-                <label>Teléfono</label>
-                <input type="tel" name="telefono" required>
-            </div>
-
-            <div class="form-group">
-                <label>Correo electrónico</label>
-                <input type="email" name="correo">
-            </div>
-
-            <div class="form-group">
-                <label>Dirección</label>
-                <input type="text" name="direccion">
-            </div>
-
-            <input type="text" name="ocupacion" placeholder="Ocupación" required>
-
-            <div class="form-group">
-                <label>Mensaje o solicitud</label>
-                <textarea name="mensaje"></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary">Enviar solicitud</button>
-
-        </form>
-
-    </div>
-</section>
-
-    <!-- Footer -->
+<!-- Footer -->
 <footer>
         <div class="container">
             <div class="footer-grid">
@@ -137,14 +87,9 @@
         </div>
 </footer>
 
-<div id="toast" class="toast"></div>
-
-    <script src="js/main.js"></script>
-    <script src="js/inscripcion.js"></script>
-
-    <a href="https://wa.me/18097922383" class="whatsapp-btn" target="_blank">
+<script src="js/main.js"></script>
+<a href="https://wa.me/18097922383" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
-    </a>
-
+</a>
 </body>
 </html>
